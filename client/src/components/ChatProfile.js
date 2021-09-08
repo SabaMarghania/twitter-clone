@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import Avatar from '@material-ui/core/Avatar';
 
 function ChatProfile({message,messageimg}) {
-    
+
     const userLogin = useSelector((state) => state.userLogin);
     const { userInfo } = userLogin;
 
@@ -19,13 +19,14 @@ function ChatProfile({message,messageimg}) {
             <Avatar src={userInfo?.pic} />
         <div className='chatProfile__info'>
             <p>{message}</p>
-            <div ref={messagesEndRef} />
             <div className="chatprofile__img">
                 {messageimg && <img width='300px' src={`/uploads/${messageimg}`}  alt=""/>  }
                 
             </div>
+
             </div>
         </div>
+        <div ref={messagesEndRef} />
         
         </>
     )

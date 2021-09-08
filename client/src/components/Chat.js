@@ -71,7 +71,6 @@ function Chat() {
                       key={value._id}
                       message={value.message}
                       messageimg={value.messageimg}
-                      image={value.messageimg}
                       />
                   )
               })}

@@ -1,0 +1,118 @@
+.poll_cont{
+    display: flex;
+    flex-direction: column;
+}
+
+.poll{
+    display: flex;
+    padding: 15px;
+    border: 1px solid rgb(238, 238, 238);
+}
+.poll__option{
+    display: flex;
+    align-items: center;
+    border: 1px solid rgb(194, 194, 194);
+    margin-top: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    height: 40px;
+    width: 300px;
+}
+.poll__option > p{
+    padding-right: 5px;
+}
+.poll__option h4{
+    padding-left: 15px;
+    font-weight: 500;
+}
+.poll__title h4{
+    font-weight: 500;
+}
+.poll__options{
+    margin-top: 8px;
+}
+.poll__option_cont{
+    width: 280px;
+}
+.poll__option_count{
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    height: 38px;
+}
+.poll__option_count > input{
+    display: none;
+}
+.poll__option__info{
+    display: flex;
+    width: 250px;
+    justify-content: space-between;
+}
+
+.post__info > button{
+    width: 115px;
+    height: 25px;
+    margin-top: 5px;
+    background-color: rgb(29, 161, 242);
+    border: none;
+    outline: none;
+    border-radius: 8px;
+    color: #fff;
+    cursor: pointer;
+    font-family: sans-serif;
+}
+.post__info_cont{
+    display: flex;
+    justify-content: space-between;
+    width: 430px;
+}
+.edit_poll_modal_body > h1{
+    text-align: center;
+    font-weight: 400;
+}
+.edit_poll_modal_body{
+ 
+    width: 550px;
+    height: 440px;
+    background: rgb(245, 245, 245);
+    margin: 30px auto;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    padding: 25px;
+}
+.edit_poll_modal_body_cont input{
+    width: 380px;
+    padding-left:15px;
+    height: 50px;
+    font-size: 17px;
+    outline: none;
+    border-radius: 7px;
+    margin:0 auto;
+    border:1px solid rgb(190, 190, 190);
+}
+
+.edit_poll_modal_body_cont{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: fit-content;
+    height: 250px;
+    margin: auto auto;
+}
+.edit_poll_modal_button{
+    display: flex;
+    justify-content: center;
+}
+.edit_poll_modal_button button{
+    width: 380px;
+    height: 40px;
+    border-radius: 25px;
+    background-color: rgb(29, 161, 242);
+    opacity: 0.5;
+    cursor: pointer;
+    color: #fff;
+    font-size: 18px;
+    outline:none;    
+    border: none;
+}

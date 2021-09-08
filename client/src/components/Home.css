@@ -1,0 +1,137 @@
+.home{
+    font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;;
+    /* margin-left: 5%; */
+}
+.home_title{
+    width: 550px;
+    border-bottom: 1px solid rgb(238, 238, 238);
+    padding: 12px;
+
+}
+.modal_body > h1{
+    text-align: center;
+    font-family: sans-serif;
+}
+.home__profile{
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+    padding: 15px;
+}
+
+.home__profile_input{
+    margin-left: 15px;
+}
+.home__profile_input input{
+    width: 300px;
+    height: 35px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+}
+.home__actions{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 8px;
+    margin-top: 15px;
+    border-top: 1px solidrgb(238, 238, 238);
+}
+.home_cont{
+    border: 1px solid rgb(238, 238, 238);
+}
+.home__actions button{
+    width: 100px;
+    height: 35px;
+    border-radius: 25px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: rgb(29, 161, 242);
+    opacity: 0.5;
+    color: #fff;
+    font-size: 18px;
+}
+
+.home__uploadImage > input{
+    display:none;
+}
+
+.home__actions_icons{
+    display:flex;
+}
+.modal_body{
+ 
+    width: 650px;
+    height: 530px;
+    background: rgb(245, 245, 245);
+    margin: 30px auto;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    padding: 25px;
+}
+.modal_body_cont input{
+    width: 380px;
+    padding-left:15px;
+    height: 50px;
+    font-size: 17px;
+    outline: none;
+    border-radius: 7px;
+    margin:0 auto;
+    border:1px solid rgb(190, 190, 190);
+}
+.modal_body_cont{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: fit-content;
+    height: 250px;
+    margin: auto auto;
+}
+.modal_button{
+    display: flex;
+    justify-content: center;
+}
+.modal_button button{
+    width: 380px;
+    height: 40px;
+    border-radius: 25px;
+    background-color: rgb(29, 161, 242);
+    opacity: 0.5;
+    cursor: pointer;
+    color: #fff;
+    font-size: 18px;
+    outline:none;    
+    border: none;
+}
+.modal_question textarea{
+    width: 550px;
+    padding-left:15px;
+    padding-top: 15px;
+    margin-top: 15px;
+    height: 80px;
+    outline: none;
+    border-radius: 15px;
+    margin:12px auto;
+    border: none;    
+    word-wrap: break-word;
+    word-break: break-all;
+    font-size: 18px;
+}
+.modal_question{
+    display: flex;
+    justify-content: center;
+}
+.reverse{
+    display: flex;
+    flex-direction: column-reverse;
+}
+.Polls{
+    display: flex;
+    flex-direction: column-reverse;
+}
+.Posts{
+    display: flex;
+    flex-direction: column-reverse;
+}

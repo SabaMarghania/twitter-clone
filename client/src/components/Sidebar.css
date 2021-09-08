@@ -1,0 +1,86 @@
+    /* color: rgb(28, 164, 218); */
+
+.sidebar{
+    width: 330px;
+}
+.sidebar__head_icon{
+    margin-left: 13%;
+}
+.sidebar__links{
+    display: flex;
+    cursor: pointer;
+    font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;;
+    align-items: center;
+    padding:10px;
+    width: fit-content;
+    border-radius: 35px;
+}
+.sidebar__links h3{
+    font-weight: 400;
+    margin-left: 20px;
+}
+.sidebar__links h3:hover{
+    font-weight: 600;
+}
+.icon{
+    font-size: 30px !important;
+}
+.sidebar__link_cont{
+    margin-left: 12%;
+}
+.sidebar__links:hover{
+    background-color: rgb(221, 221, 221);
+}
+.sidebar__tweet{
+    margin-top: 10px;
+}
+.sidebar__tweet button{
+    width: 230px;
+    height: 50px;
+    background-color: rgb(25, 162, 216);
+    border: none;
+    cursor: pointer;
+    outline: none;
+    border-radius: 35px;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    margin-left: 8%;
+}
+.sidebar__profile{
+    display: flex;
+    margin-left: 10%;
+    margin-top: 60px;
+    align-items: center;
+}
+.sidebar__profile-name{
+    margin-left: 10px;
+}
+.sidebar__profile-name p{
+    color: rgb(107, 107, 107);
+}
+.sidebar__modal{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 60px;
+    bottom:40px;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 2px 2px 8px -3px #000000;
+    z-index: 1;
+}
+.sidebar__settings{
+    width:70px;
+    margin-left: 10px;
+}
+.sidebar__profile-name h4{
+    font-family: sans-serif;
+}
+.sidebar__modal > p{
+    cursor: pointer;
+    font-size: 20px;
+    padding-left: 5px;
+}

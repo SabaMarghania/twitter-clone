@@ -1,0 +1,118 @@
+.loginpage{
+    margin: 0 auto;
+
+}
+.loginpage__cont{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+.loginpage__text{
+    margin-top: 20px;
+    font-family: sans-serif;
+}
+.loginpage__text h1{
+    font-family: sans-serif;
+}
+.loginpage__form{
+    display: flex;
+    margin-top: 20px;
+    flex-direction: column;
+}
+.loginpage__form input{
+    margin-top: 20px;
+    width: 350px;
+    height: 50px;
+    padding-left: 15px;
+    font-size: 16px;
+    border: 1px solid rgb(212, 212, 212);
+    outline: none;
+    border-radius: 5px;
+}
+.loginpage__button{
+    margin-top: 20px;
+}
+.loginpage__button button{
+    width: 350px;
+    cursor: pointer;
+    height: 50px;
+    background-color: rgb(29, 155, 240);
+    opacity: 0.5;
+    font-weight: 600;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: #fff;
+}
+.loginpage__signup{
+    cursor: pointer;
+    text-align: center;
+    margin-top: 15px;
+}
+.loginpage__signup p{
+    color: rgb(29, 155, 240);
+}
+.login__modal_body{
+ 
+    width: 630px;
+    height: 550px;
+    background: rgb(245, 245, 245);
+    margin: 0 auto;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    padding: 25px;
+}
+.login__modal_body_cont input{
+    width: 550px;
+    padding-left:15px;
+    height: 50px;
+    font-size: 17px;
+    outline: none;
+    border-radius: 7px;
+    margin:0 auto;
+    border:1px solid rgb(190, 190, 190);
+}
+.login__modal_body_cont{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: fit-content;
+    height: 350px;
+    margin: auto auto;
+}
+.login__modal_button{
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+}
+.login__modal_button button{
+    width: 380px;
+    height: 40px;
+    border-radius: 25px;
+    background-color: rgb(29, 161, 242);
+    opacity: 0.5;
+    cursor: pointer;
+    color: #fff;
+    font-size: 18px;
+    outline:none;    
+    border: none;
+}
+.login__modal_body_cont h4{
+    font-family: sans-serif;
+}
+.login__icon{
+    display:flex !important;
+    margin: 0 auto;
+}
+.login__modal_body_title{
+    margin-left: 15px;
+    font-family: sans-serif;
+}
+.login__modal_body_cont p{
+    color: gray;
+    max-width: 550px;
+}

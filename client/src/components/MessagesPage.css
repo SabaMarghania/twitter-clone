@@ -1,0 +1,31 @@
+.messagespage{
+    width: 400px;
+    border: 1px solid rgb(230, 229, 229);
+}
+.messagespage__top__box{
+    border: 1px solid rgb(230, 229, 229);
+    padding: 12px;
+    border-right: none;
+}
+.messagespage__list{
+    padding: 12px;
+}
+.messagespage__profile{
+    cursor: pointer;
+    display: flex;
+    margin-top: 20px;
+}
+.messagespage__profile-name{
+    padding-left: 10px;
+    display: flex;
+
+}
+.messagespage__profile-name > p{
+    padding-left: 10px;
+    color: gray;
+}
+.messagespage__message > p{
+    padding-left: 10px;
+    padding-top: 5px;
+
+}

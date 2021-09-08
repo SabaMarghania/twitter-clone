@@ -1,0 +1,12 @@
+.register{
+    margin:0 auto;
+}
+input[type=file]{
+    border: none;
+}
+.login__modal_body_cont{
+    height: 450px;
+}
+.login__modal_body_cont input{
+    margin-top: 15px;
+}

@@ -1,0 +1,118 @@
+.post{
+    display: flex;
+    font-family: TwitterChirp, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;;
+    padding:15px;
+    border: 1px solid rgb(238, 238, 238);
+
+}
+.post__info{
+    margin-left:10px;
+    line-height: 22px;
+}
+.post__info_names{
+    display:flex;
+}
+.post__info_names > p {
+    margin-left: 5px;
+    color:gray;
+    font-size:16px;
+}
+.post__top_info{
+    display: flex;
+    width: 430px;
+    height: 25px;
+    justify-content: space-between;
+}
+.post__info img{
+    margin-top: 10px;
+}
+.post_modal{
+    width: 150px;
+    height: 150px;
+    background-color: #fff;
+}
+.post_modal_box{
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 255, 255,0.2);
+}
+.post_modal_root{
+    position: relative;
+}
+.post_modal_dropdown{
+    top: -90px;
+    left: -190px;
+    right: 0;
+    width: 230px;
+    border: none;
+    -webkit-box-shadow: 2px 2px 8px -3px #000000; 
+    box-shadow: 2px 2px 8px -3px #000000;
+    border-radius: 4px;
+    z-index: 1;
+    position: absolute;
+    background-color: #fff;
+}
+.post_modal__option{
+    display: flex;
+    cursor: pointer;
+    padding: 10px;
+    align-items: center;
+}
+.post_modal__option:hover{
+    background-color: rgb(224, 224, 224);
+}
+.post_modal__option h4{
+    font-weight: 400;
+    margin-left: 10px;
+    color:red;
+}
+.edit_modal_body > h1{
+    text-align: center;
+    font-weight: 400;
+}
+.edit_modal_body{
+ 
+    width: 550px;
+    height: 450px;
+    background: rgb(245, 245, 245);
+    margin: 30px auto;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    padding: 25px;
+}
+.edit_modal_body_cont input{
+    width: 380px;
+    padding-left:15px;
+    height: 50px;
+    font-size: 17px;
+    outline: none;
+    border-radius: 7px;
+    margin:0 auto;
+    border:1px solid rgb(190, 190, 190);
+}
+
+.edit_modal_body_cont{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: fit-content;
+    height: 150px;
+    margin: auto auto;
+}
+.edit_modal_button{
+    display: flex;
+    justify-content: center;
+}
+.edit_modal_button button{
+    width: 380px;
+    height: 40px;
+    border-radius: 25px;
+    background-color: rgb(29, 161, 242);
+    opacity: 0.5;
+    cursor: pointer;
+    color: #fff;
+    font-size: 18px;
+    outline:none;    
+    border: none;
+}

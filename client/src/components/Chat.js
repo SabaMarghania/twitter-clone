@@ -26,9 +26,12 @@ function Chat() {
                     setMessages(res.data);
                 }
             })
+
+          
         return () => flag = false
     }, [messages])
-    const HandleMessage =  ()  =>{
+    const HandleMessage =  (e)  =>{
+        e.preventDefault()
         const formData = new FormData();
         formData.append("message", message)
         formData.append("messageImage", file)
@@ -38,9 +41,10 @@ function Chat() {
         .catch((err)=>{
             console.log(err);
         })
- 
+        setMessage('')
     }
-    const HandleText =  ()  =>{
+    const HandleText =  (e)  =>{
+        e.preventDefault()
         const formData = new FormData();
         formData.append("message", message)
 
@@ -49,8 +53,12 @@ function Chat() {
         .catch((err)=>{
             console.log(err);
         })
+        setMessage('')
  
     }
+
+ 
+    
     return (
         <div className='chat'>
             <div className='chat__container'>
@@ -65,10 +73,11 @@ function Chat() {
             </div>
             
             <div className="chat__message__section">
-            {messages.map((value)=>{
+             {messages.map((value)=>{
                   return (
                       <ChatProfile
                       key={value._id}
+                      id={value._id}
                       message={value.message}
                       messageimg={value.messageimg}
                       />
@@ -77,6 +86,7 @@ function Chat() {
             </div>
 
             <div className="chat__bottom__box">
+            <form onSubmit={file ? HandleMessage : HandleText}>
                 <div className="chat__bottom__form">
                     <div className="chat__bottom__icons">
                     <div className="home__uploadImage">
@@ -95,10 +105,11 @@ function Chat() {
                         <input onChange={ (e) => setMessage(e.target.value)} type="text" placeholder='Start a new message' />
                     </div>
                     <div className="chat__bottom__icons2 ">
-                        <SendIcon  onClick={file ? HandleMessage : HandleText} style={{color: "rgb(29, 161, 242)",cursor:'pointer'}} />
-                    </div>
-                    
+                  { (message || file)  &&    <SendIcon  onClick={file ? HandleMessage : HandleText} style={{color: "rgb(29, 161, 242)",cursor:'pointer'}} />
+ }
+  </div>
                 </div>
+  </form>
             </div>
         </div>
     )

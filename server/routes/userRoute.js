@@ -21,7 +21,13 @@ const storage = multer.diskStorage({
 
 const upload = multer({storage:storage})
 
+//del msg
+router.delete('/deleteMsg/:id',async (req,res)=>{
+  const id = req.params.id;
 
+  await MessageModel.findByIdAndDelete(id).exec();
+
+})
 // chat
 
 //get messages
@@ -65,6 +71,7 @@ router.post('/message2', upload.single("messageImage"),async (req,res)=>{
       console.log(err);
   }
 })
+// db.singleFieldDemo.find({"StudentAge":18},{"StudentName":1,"_id":0});
 
 router.get('/getUser', (req,res)=>{
   UserModel.find({},(err,result)=>{
@@ -90,7 +97,6 @@ router.get('/read', (req,res)=>{
   })
   
 })
-
 router.get('/pollsData', (req,res)=>{
   PollModel.find({},(err,result)=>{
       if(err){

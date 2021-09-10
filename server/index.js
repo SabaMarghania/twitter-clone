@@ -21,10 +21,10 @@ mongoose.connect("mongodb+srv://saba:test123@cluster0.t4pyn.mongodb.net/twitterd
 app.use("/", userRoutes);
 //production
 if(process.env.NODE_ENV === 'production'){
-    app.use(express.static('../client/build'));
+    app.use(express.static(path.join("client/build")))
 
     app.get('*', (req,res)=>{
-        res.sendFile(path.resolve(__dirname,'../client','build','index.html'))
+        res.sendFile(path.resolve(__dirname,'client','build','index.html'))
     })
 }
 

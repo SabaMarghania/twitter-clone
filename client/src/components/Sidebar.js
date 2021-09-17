@@ -62,10 +62,13 @@ function Sidebar() {
                     <h3>Messages</h3>
                 </div>
                 </Link>
+
+                <Link to='/profile' style={{textDecoration:'none',color:'#000'}} >
                 <div className="sidebar__links">
                     <PersonOutlineOutlinedIcon className='icon'/>
-                    <h3 >Profile</h3>
+                    <h3>Profile</h3>
                 </div>
+                </Link>
 
                 <div className="sidebar__links">
                     <NotificationsNoneOutlinedIcon className='icon'/>

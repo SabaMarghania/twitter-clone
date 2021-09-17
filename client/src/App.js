@@ -15,6 +15,7 @@ import {
 import {  useSelector } from "react-redux";
 import MessagesPage from './components/MessagesPage';
 import Chat from './components/Chat';
+import Profile from './components/Profile';
 
 function App() {
 
@@ -27,6 +28,11 @@ function App() {
         <div className="App">
 
       <Switch>
+      <Route path = "/profile" >
+            <Sidebar />
+            <Profile />
+            {/* <SidebarRight /> */}
+          </Route>
       <Route path = "/chat" >
             <Sidebar />
             <MessagesPage />

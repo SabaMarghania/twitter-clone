@@ -10,50 +10,75 @@ import Axios from 'axios'
 function Chat() {
     const [message, setMessage] = useState('')
     const [messages, setMessages] = useState([])
-    const [file, setFile] = useState('')
+    const [fileData, setFileData] = useState('');
+    const [load, setLoad] = useState(false);
+    const [images, setFile] = useState("");
 
     const onChangeFile = (e) =>{
-        setFile(e.target.files[0]);
+        setFileData(e.target.files[0]);
+        setFile(e.target.value)
     }
 
     useEffect(() => {
-
         let flag = true
-     
-        Axios.get("http://localhost:3001/getMessages", )
+     // http://localhost:3001
+        Axios.get("http://localhost:3001/getMessages",)
             .then((res) => {
                 if (flag) {
                     setMessages(res.data);
                 }
             })
-
+            if(load) {
+                setTimeout(() => {
+                  setLoad(false);
+                }, 1000)
+              }
           
         return () => flag = false
-    }, [messages])
-    const HandleMessage =  (e)  =>{
+    }, [load])
+
+    const HandleMessage = async (e)  =>{
+        if(load===false){
+            setLoad(true)
+        }else{
+            setLoad(false)
+        }
         e.preventDefault()
         const formData = new FormData();
         formData.append("message", message)
-        formData.append("messageImage", file)
+        formData.append("image", fileData)
+       
 
-        Axios.post("http://localhost:3001/message",formData)
-        .then((res)=>setMessages(res.data))
-        .catch((err)=>{
-            console.log(err);
-        })
-        setMessage('')
+       await Axios.post("http://localhost:3001/message",formData)
+       .then(() => {
+        setFileData('');
+        setMessage('');
+        setLoad(true);
+      })
+       .catch((err)=>{
+           console.log(err);
+       })
+
     }
-    const HandleText =  (e)  =>{
+    const HandleText =  async (e)  =>{
+        if(load===false){
+            setLoad(true)
+        }else{
+            setLoad(false)
+        }
         e.preventDefault()
         const formData = new FormData();
         formData.append("message", message)
+       
 
-        Axios.post("http://localhost:3001/message2",formData)
-        .then((res)=>setMessages(res.data))
+        await Axios.post("http://localhost:3001/message2",formData)
+        .then(() => {
+            setMessage('');
+            setLoad(true);
+          })
         .catch((err)=>{
             console.log(err);
         })
-        setMessage('')
  
     }
 
@@ -79,14 +104,13 @@ function Chat() {
                       key={value._id}
                       id={value._id}
                       message={value.message}
-                      messageimg={value.messageimg}
+                      messageimg={value.image}
                       />
                   )
               })}
             </div>
 
             <div className="chat__bottom__box">
-            <form onSubmit={file ? HandleMessage : HandleText}>
                 <div className="chat__bottom__form">
                     <div className="chat__bottom__icons">
                     <div className="home__uploadImage">
@@ -95,7 +119,7 @@ function Chat() {
                         </label>
                         <input id="messageImage" 
                         onChange={onChangeFile} 
-                        name="messageImage" 
+                        name="file" 
                         type="file" 
                         />
 
@@ -105,11 +129,10 @@ function Chat() {
                         <input onChange={ (e) => setMessage(e.target.value)} type="text" placeholder='Start a new message' />
                     </div>
                     <div className="chat__bottom__icons2 ">
-                  { (message || file)  &&    <SendIcon  onClick={file ? HandleMessage : HandleText} style={{color: "rgb(29, 161, 242)",cursor:'pointer'}} />
+                  { (message || fileData)  &&    <SendIcon  onClick={fileData ? HandleMessage : HandleText} style={{color: "rgb(29, 161, 242)",cursor:'pointer'}} />
  }
   </div>
                 </div>
-  </form>
             </div>
         </div>
     )

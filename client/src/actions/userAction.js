@@ -26,7 +26,7 @@ import {
       };
   
       const { data } = await axios.post(
-        "http://localhost:3001/login",
+        "https://mern-twitter-clone-project.herokuapp.com/login",
         { email, password },
         config
       );
@@ -60,7 +60,7 @@ export const register = (username, email, password,pic) => async (dispatch) => {
         },
       };
   
-      const { data } = await axios.post("http://localhost:3001/register",
+      const { data } = await axios.post("https://mern-twitter-clone-project.herokuapp.com/register",
         { username,  email,pic, password },
         config
       );

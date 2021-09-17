@@ -9,11 +9,15 @@ import Poll from './Poll'
 import { useSelector } from "react-redux";
 import Modal from '@material-ui/core/Modal';
 function Home() {
-    //post
+    //post  
+
+
     const [post, setPost]=useState("");
     const [posts, setPosts]= useState([])
     const[postsArr, setPostsArr] = useState([])
-    const [file, setFile] = useState('');
+    //image
+    const [fileData, setFileData] = useState('');
+    const [images, setFile] = useState("");
     //modal
     const [open, setOpen] = useState(false);
     //poll
@@ -23,6 +27,15 @@ function Home() {
     const [option3, setOption3] = useState('')
     const[poll,setPoll] = useState([])
     const[polls,setPolls] = useState([])
+    //load
+    const [load, setLoad] = useState(false);
+
+//select image
+const onChangeFile = (e) =>{
+    setFileData(e.target.files[0]);
+    setFile(e.target.value);
+}
+
  //modal
     const handleOpen = () => {
       setOpen(true);
@@ -34,55 +47,69 @@ function Home() {
     const userLogin = useSelector((state) => state.userLogin);
     const { userInfo } = userLogin;
    //get data
- 
    useEffect(() => {
-
-       let flag = true
+    
+      let  flag = true
        Axios.get("http://localhost:3001/pollsData", )
            .then((res) => {
                if (flag) {
                    setPolls(res.data);
                }
            })
+
        Axios.get("http://localhost:3001/read", )
            .then((res) => {
                if (flag) {
                    setPostsArr(res.data);
                }
            })
+           if(load) {
+
+            setTimeout(() => {
+              setLoad(false);
+            }, 1500)
+          }
        return () => flag = false
-   }, [polls])
+   }, [load])
 
-        const onChangeFile = (e) =>{
-            setFile(e.target.files[0]);
-        }
+     
    
-    const AddPosts2 =  ()  =>{
-        const formData = new FormData();
-        formData.append("post", post)
-
-        Axios.post("http://localhost:3001/insert2",formData)
-        .then((res)=>setPosts(res.data))
-        .catch((err)=>{
-            console.log(err);
-        })
-
-    }
-
-    const AddPosts =  ()  =>{
-        const formData = new FormData();
-        formData.append("post", post)
-        formData.append("postImage", file)
-
-        Axios.post("http://localhost:3001/insert",formData)
-        .then((res)=>setPosts(res.data))
-        .catch((err)=>{
-            console.log(err);
-        })
+    const AddPosts2 = async (e)  =>{
  
+        const formData = new FormData();
+        formData.append("post", post)
+        e.preventDefault()
+
+        await Axios.post("http://localhost:3001/insert2",formData)
+        .then(() => {
+            setPost('');
+            setLoad(true);
+          })
+
+        .catch((err)=>{
+            console.log(err);
+        })
+    }
+    const AddPosts = async (e)  =>{
+  
+        const formData = new FormData();
+        formData.append("post", post)
+        formData.append("image", fileData)
+        e.preventDefault()
+       
+       await Axios.post("http://localhost:3001/insert",formData)
+       .then(() => {
+        setFileData('');
+        setLoad(true);
+      })
+       .catch((err)=>{
+           console.log(err);
+       })
+
     }
 
     const AddPoll =  (e)  =>{
+   
         e.preventDefault()
         setOpen(false)
         Axios.post("http://localhost:3001/poll",{
@@ -91,11 +118,12 @@ function Home() {
            option2:option2,
            option3:option3,
         })
-        .then((res)=>setPoll(res.data))
-        .catch((err)=>{
-            console.log(err);
-        })
- 
+      
+    .then(()=>setLoad(true))
+       .catch((err)=>{
+           console.log(err);
+       })
+
     }
     
     const body = (
@@ -123,7 +151,7 @@ function Home() {
         <div className='home'>
         <div className='home_cont'>
 
-            <div className="home_title">
+            <div className="homefile_title">
                 <h3>Home</h3>
             </div>
             
@@ -138,8 +166,8 @@ function Home() {
                 </div>
 
                 </div>
-                <form >
 
+                <form>
                 <div className="home__actions">
                     <div className="home__actions_icons">
                     <div className="home__uploadImage">
@@ -148,7 +176,7 @@ function Home() {
                         </label>
                         <input id="postImage" 
                         onChange={onChangeFile} 
-                        name="postImage" 
+                        name="file" 
                         type="file" 
                         />
 
@@ -156,7 +184,7 @@ function Home() {
                    
                         <PollOutlinedIcon onClick={handleOpen} style={{color:'rgba(29,161,242,1.00)',cursor:'pointer'}}/>
                     </div>
-                    <button onClick={ file ? AddPosts : AddPosts2} type='submit'>Tweet</button>
+                  {(post || fileData)  &&  <button onClick={fileData ? AddPosts : AddPosts2} type='submit'>Tweet</button>}
                 </div>
                 </form>
             </div>
@@ -164,13 +192,13 @@ function Home() {
             <div className="reverse">
 
             <div className="Posts">
-                  {postsArr.map((value)=>{
+             {postsArr.map((value)=>{
                   return (
                       <Post
                       key={value._id}
                       id={value._id}
                       post={value.posting}
-                      image={value.img}
+                      image={value.image}
                       />
                   )
               })}

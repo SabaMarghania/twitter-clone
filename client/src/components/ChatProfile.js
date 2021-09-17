@@ -27,7 +27,10 @@ function ChatProfile({message,messageimg,id}) {
     useEffect(scrollToBottom, [message]);
     const delMsg = () =>{
         Axios.delete(`http://localhost:3001/deleteMsg/${id}`)
-       
+   
+          window. location.reload()
+    
+     
       }
     return (
         <div>
@@ -35,9 +38,9 @@ function ChatProfile({message,messageimg,id}) {
             <Avatar src={userInfo?.pic} />
         <div className='chatProfile__info_cont'>
         <div className='chatProfile__info'>
-          {message &&  <p>{message}</p>}
+          {message && <p>{message}</p>}
             <div className="chatprofile__img">
-                {messageimg && <img width='300px' src={`/uploads/${messageimg}`}  alt=""/>  }
+                {messageimg && <img width='300px' src={messageimg}  alt=""/>  }
                 
             </div>
             </div>

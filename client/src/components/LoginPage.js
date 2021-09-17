@@ -10,7 +10,7 @@ import ErrorMessage from "./ErrorMessage";
 
 function LoginPage({history}) {
  
-    const [email, setEmail] = useState("ucnobi102@gmail.com");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
    
   
@@ -42,7 +42,7 @@ function LoginPage({history}) {
             </Link>
             </div>
             <div className="loginpage__text">
-                <h1>Log in toprofileImg Twitter</h1>
+                <h1>Log in Twitter</h1>
             </div>
             <form onSubmit={submitHandler}>
             <div className="loginpage__form">

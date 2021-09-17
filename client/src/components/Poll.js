@@ -80,12 +80,16 @@ function Poll({title,option1,option2,option3,id}) {
         newOption2:newOption2,
         newOption3:newOption3,
      })
-   
+     setTimeout(()=>{
+        window. location.reload()
+  
+    },1000)
   }
   //delete post
   const delPoll = () =>{
     Axios.delete(`http://localhost:3001/deletePoll/${id}`)
-   
+        window. location.reload()
+  
   }
 
   const userLogin = useSelector((state) => state.userLogin);

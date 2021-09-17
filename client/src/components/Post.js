@@ -15,11 +15,13 @@ function Post({post,image,id}) {
     const [update, setUpdate] = useState(false);
     const [newText, setNewText] = useState('')
     const [newFile, setNewFile] = useState('')
+    const [newFileData, setNewFileData] = useState('')
 
     //file
 
     const onChangeFile = (e) =>{
      setNewFile(e.target.files[0]);
+     setNewFileData(e.target.value)
    }
 
  //modal
@@ -59,8 +61,11 @@ function Post({post,image,id}) {
     const formData = new FormData();
     formData.append("id", id)
     formData.append("newText", newText)
-    formData.append("newFile", newFile)
+    formData.append("image", newFile)
+    setTimeout(()=>{
+      window. location.reload()
 
+  },1000)
      Axios.put("http://localhost:3001/edit",formData)
     
   }
@@ -71,6 +76,10 @@ function Post({post,image,id}) {
         setIsOpen(false);
 
     },500)
+    setTimeout(()=>{
+      window. location.reload()
+
+  },1000)
     const formData = new FormData();
     formData.append("id", id)
     formData.append("newText", newText)
@@ -79,9 +88,11 @@ function Post({post,image,id}) {
     
   }
   //delete post
-  const delPost = () =>{
-    Axios.delete(`http://localhost:3001/delete/${id}`)
-   
+  const delPost = async () =>{
+    window. location.reload()
+
+  await  Axios.delete(`http://localhost:3001/delete/${id}`)
+ 
   }
 
 
@@ -92,7 +103,7 @@ function Post({post,image,id}) {
             {update && <h1 style={{color:'green',marginTop:'10px'}}>Post has been updated</h1>}
         <div className="edit_modal_body_cont">
             <input onChange={(e)=>{setNewText(e.target.value)}} value={newText} type="text" placeholder='Text..' />
-            <input onChange={onChangeFile} type="file" />
+            <input onChange={onChangeFile} name='file' type="file" />
         </div>
         
         <div className="edit_modal_button">
@@ -135,7 +146,7 @@ function Post({post,image,id}) {
                 </div>
                 </div>
                    <p>{post}</p>
-                 {image ? <img width='300px' src={`/uploads/${image}`}  alt=""/>  : "" }
+                 {image && <img width='300px' src={image}  alt=""/> }
 
                
             </div>

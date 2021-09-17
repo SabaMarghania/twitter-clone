@@ -63,8 +63,8 @@ function Sidebar() {
                 </div>
                 </Link>
                 <div className="sidebar__links">
-                    <Sharp/>
-                    <h3>Explore</h3>
+                    <PersonOutlineOutlinedIcon className='icon'/>
+                    <h3 >Profile</h3>
                 </div>
 
                 <div className="sidebar__links">
@@ -77,10 +77,7 @@ function Sidebar() {
                     <h3 >Explore</h3>
                 </div>
 
-                <div className="sidebar__links">
-                    <PersonOutlineOutlinedIcon className='icon'/>
-                    <h3 >Profile</h3>
-                </div>
+            
                 <div className="sidebar__links">
                     <ListAltOutlinedIcon className='icon'/>
                     <h3>Lists</h3>

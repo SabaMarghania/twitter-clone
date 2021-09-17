@@ -12,6 +12,7 @@ import {
 function Register({history}) {
 
     //reg
+    const [birth, setBirth] = useState("");
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
@@ -70,7 +71,7 @@ const postDetails = (pics) => {
 
                 if (password !== confirmpassword) {
                     setMessage("Passwords do not match");
-                } else dispatch(register(username, email, password, pic));
+                } else dispatch(register(username, email, password, pic, birth));
             };
 
     return (
@@ -97,7 +98,7 @@ const postDetails = (pics) => {
                     <h4>Date of birth</h4>
                     <p>This will not be shown publicly. Confirm your own age,
                         even if this account is for a business, a pet, or something else.</p>
-                <input  type="date" placeholder='Choice 3' />
+                <input onChange={(e)=>setBirth(e.target.value)}  type="date" placeholder='Choice 3' />
             </div>
             <div className="login__modal_button">
                 <button onClick={submitHandler} type='submit'>Sign up</button>

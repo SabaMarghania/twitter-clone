@@ -13,7 +13,7 @@ function Home() {
 
 
     const [post, setPost]=useState("");
-    const [posts, setPosts]= useState([])
+    const [users, setUsers]= useState([])
     const[postsArr, setPostsArr] = useState([])
     //image
     const [fileData, setFileData] = useState('');
@@ -63,6 +63,7 @@ const onChangeFile = (e) =>{
                    setPostsArr(res.data);
                }
            })
+       
            if(load) {
 
             setTimeout(() => {
@@ -73,7 +74,6 @@ const onChangeFile = (e) =>{
    }, [load])
 
      
-   
     const AddPosts2 = async (e)  =>{
  
         const formData = new FormData();
@@ -90,6 +90,7 @@ const onChangeFile = (e) =>{
             console.log(err);
         })
     }
+
     const AddPosts = async (e)  =>{
   
         const formData = new FormData();
@@ -125,6 +126,7 @@ const onChangeFile = (e) =>{
        })
 
     }
+    const user = userInfo.username
     
     const body = (
         <div className="modal_body">

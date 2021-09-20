@@ -31,7 +31,7 @@ function App() {
       <Route path = "/profile" >
             <Sidebar />
             <Profile />
-            {/* <SidebarRight /> */}
+            <SidebarRight />
           </Route>
       <Route path = "/chat" >
             <Sidebar />

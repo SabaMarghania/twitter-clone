@@ -9,7 +9,7 @@ import Axios from 'axios'
 import Modal from '@material-ui/core/Modal';
 import {  useSelector } from "react-redux";
 
-function Post({post,image,id}) {
+function Post({user,post,image,id}) {
     const [open, setOpen] = useState(false);
     const [Isopen, setIsOpen] = useState(false);
     const [update, setUpdate] = useState(false);

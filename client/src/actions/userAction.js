@@ -50,7 +50,7 @@ import {
   
 
 
-export const register = (username, email, password,pic,birth) => async (dispatch) => {
+export const register = (username, email, password,pic,birth,timestamp) => async (dispatch) => {
     try {
       dispatch({ type: USER_REGISTER_REQUEST });
   
@@ -61,7 +61,7 @@ export const register = (username, email, password,pic,birth) => async (dispatch
       };
   
       const { data } = await axios.post("http://localhost:3001/register",
-        { username,  email,pic, password ,birth},
+        { username,  email,pic, password ,birth,timestamp},
         config
       );
   

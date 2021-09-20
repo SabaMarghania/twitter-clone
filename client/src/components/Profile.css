@@ -5,6 +5,11 @@
 .profile__top_name{
     height: 30px;
 }
+.profile__header{
+    border-bottom: 1px solid rgb(214, 214, 214);
+    height: 480px;
+
+}
 .profile__header__background{
     height: 230px;
     background-color: rgb(199, 196, 196);

@@ -24,6 +24,19 @@ router.delete('/deleteMsg/:id',async (req,res)=>{
   res.status(200).send("");
 
 })
+router.get('/getLastMessage', (req,res)=>{
+  MessageModel.find({}).sort({_id: -1}).limit(1).then((item) => {
+   res.send(item)
+  })
+  
+})
+router.get('/getUser', (req,res)=>{
+  UserModel.find({}).sort({_id: -1}).limit(1).then((item) => {
+   res.send(item)
+  })
+  
+})
+
 // chat
 
 //get messages
@@ -66,16 +79,7 @@ router.post('/message2', parser.single("image"),async (req,res)=>{
       console.log(err);
   }
 })
-router.get('/getUser', (req,res)=>{
-  UserModel.find({},(err,result)=>{
-      if(err){
-          res.send(err);
-      }
 
-       res.send(result);
-  })
-  
-})
 
 router.post("/register",registerUser);
 router.post("/login", authUser)
@@ -180,7 +184,7 @@ router.post('/poll',async (req,res)=>{
 
 router.post('/insert2', parser.single("image"),async (req,res)=>{
 
-  
+
   const posts = new PostModel({
         posting:req.body.post ,
     });
@@ -196,11 +200,13 @@ try{
 })
 
 router.post('/insert', parser.single("image"),async (req,res)=>{
-  
+
+
     const posts = new PostModel({
           posting:req.body.post ,
           image: req.file.path ,
       });
+
   try{
     res.status(200).send("");
       await posts.save();

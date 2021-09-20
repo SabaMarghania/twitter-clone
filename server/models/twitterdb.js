@@ -7,7 +7,8 @@ const PostSchema = new mongoose.Schema({
     image:{
         type:String,
         required: false,
-    }  
+    },
+ 
 });
 
 const Posts = mongoose.model("post",PostSchema);

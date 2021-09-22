@@ -126,7 +126,6 @@ const onChangeFile = (e) =>{
        })
 
     }
-    const user = userInfo.username
     
     const body = (
         <div className="modal_body">

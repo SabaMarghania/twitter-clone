@@ -55,3 +55,78 @@
 .profile__editProfile button:hover{
     background-color: rgb(218, 218, 218) ;
 }
+.profile__birthdate{
+    display: flex;
+    align-items: center;
+    color: gray;
+    justify-content: center;
+    margin-top: 10px;
+}
+.profile__birthdate > p{
+    margin-left: 5px;
+}
+.profile__modal__birthdate{
+    margin-left:15px;
+    
+}
+.profile__modal__birthdate > p{
+    color:gray;
+}
+.profile__modal__birthdate > h3{
+    font-family: sans-serif;
+}
+.profile__modal__title{
+    margin-left:15px;
+    font-family: sans-serif;
+}
+.profile__modal_avatar{
+    margin-top: 10px;
+    margin-left:15px;
+
+}
+.profile__modal_body{
+ 
+    width: 550px;
+    height: 580px;
+    background: rgb(245, 245, 245);
+    margin: 30px auto;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    padding: 25px;
+}
+.profile__modal_body_cont input{
+    width: 480px;
+    padding-left:15px;
+    height: 50px;
+    font-size: 17px;
+    outline: none;
+    border-radius: 7px;
+    margin:0 auto;
+    border:1px solid rgb(190, 190, 190);
+}
+.profile__modal_body_cont{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: fit-content;
+    height: 250px;
+    margin: 10px auto;
+}
+.profile__modal_button{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.profile__modal_button button{
+    width: 380px;
+    height: 40px;
+    border-radius: 25px;
+    background-color: rgb(29, 161, 242);
+    opacity: 0.5;
+    cursor: pointer;
+    color: #fff;
+    font-size: 18px;
+    outline:none;    
+    border: none;
+}

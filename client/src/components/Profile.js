@@ -4,17 +4,26 @@ import './Profile.css'
 import {useSelector} from 'react-redux'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Axios from 'axios'
-import Moment from 'react-moment';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import Post from './Post'
+import Modal from '@material-ui/core/Modal';
 
 function Profile() {
     const[postsArr, setPostsArr] = useState([])
+    const [open, setOpen] = useState(false);
     const [load, setLoad] = useState(false);
     const[polls,setPolls] = useState([])
 
     const userLogin = useSelector((state) => state.userLogin);
     const { userInfo } = userLogin;
+    //modal
+    const handleOpen = () => {
+        setOpen(true);
+      };
+      const handleClose = () => {
+        setOpen(false);
+      };
+  
     const[data,setData] = useState([])
     useEffect(()=>{
         Axios.get("http://localhost:3001/getUser", )
@@ -42,6 +51,31 @@ function Profile() {
          
          return () => flag = false
      }, [])
+
+     const body = (
+        <div className="profile__modal_body">
+            <div className="profile__modal__title">
+                <h2>Edit profile</h2>
+            </div>
+            <div className="profile__modal_avatar">
+                 <Avatar src={userInfo?.pic} style={{width:'100px',height:'100px'}} />
+            </div>
+            <div className="profile__modal_body_cont">
+                <input type="text" placeholder='Name' />
+                <input type="text" placeholder='Bio' />
+                <input type="text" placeholder='Location' />
+                <input type="text" placeholder='Website' />
+            </div>
+            <div className="profile__modal__birthdate">
+                <p>Birth date</p>
+                <h3>{userInfo?.birth}</h3>
+            </div>
+            <div className="profile__modal_button">
+                <button type='submit' >Save</button>
+            </div>
+       
+        </div>
+      );
     return (
         <div className='profile'>
             <div className="profile__header">
@@ -57,22 +91,14 @@ function Profile() {
                     <div className="profile__profile-name">
                         <h3>{userInfo?.email}</h3>
                         <p>@{userInfo?.username}</p>
-                        {data.map((item)=>{
-                            return (
-                                <div key={item._id}>
-                                    <div style={{display:'flex',color:'gray',alignItems:'center',marginTop:'10px'}} className="date">
-                                    <DateRangeIcon/>   
-                                        <p>Joined </p>
-                                    <Moment style={{marginLeft:'5px'}} format='MMMM  YYYY,hh:mm:ss'>{item.createdAt }</Moment> 
-                                    </div>
-
-                                    
-                                </div>
-                            )
-                        })}
+                            <div className="profile__birthdate">
+                                <DateRangeIcon style={{color:'gray'}}/>
+                                <span>Born </span>
+                                <p>{userInfo?.birth}</p>
+                            </div>     
                     </div>
                 <div className="profile__editProfile">
-                    <button type='submit'>Edit profile</button>
+                    <button type='submit' onClick={handleOpen}>Edit profile</button>
                     </div>
                     </div>
                 </div>
@@ -90,6 +116,14 @@ function Profile() {
                   )
               })}
             </div>
+            <Modal
+                open={open}
+                onClose={handleClose}
+                aria-labelledby="simple-modal-title"
+                aria-describedby="simple-modal-description"
+             >
+                {body}
+            </Modal>
         </div>
     )
 }
